@@ -30,17 +30,17 @@ def summiere_iterativ(zahlen):
     return summe
 
 
-def foldRight(f, z, items):
+def foldRight(f, acc, items):
     if not items:
-        return z
+        return acc
     else:
         head, tail = items[0], items[1:]
-        return f(head, foldRight(f, z, tail))
+        return f(head, foldRight(f, acc, tail))
 
 
-def foldLeft(f, z, items):
+def foldLeft(f, acc, items):
     if not items:
-        return z
+        return acc
     else:
         head, tail = items[0], items[1:]
-        return foldLeft(f, f(z, head), tail)
+        return foldLeft(f, f(acc, head), tail)
