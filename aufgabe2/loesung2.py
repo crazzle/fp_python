@@ -20,6 +20,7 @@ class Testsuite(unittest.TestCase):
 
     def test(self):
         self.assertListEqual(self.ergebnis, konvertiere(self.zahlen.split("+")))
+        self.assertListEqual(self.ergebnis, map(int, self.zahlen.split("+")))
 
 
 def konvertiere(zahlen):
