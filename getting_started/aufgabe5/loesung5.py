@@ -31,4 +31,4 @@ def store(items):
     def merge(l, r):
         return lambda k: l(k) or r(k)
 
-    return reduce(merge, map(pair, items), pair((None,None)))
+    return reduce(merge, map(pair, items))
