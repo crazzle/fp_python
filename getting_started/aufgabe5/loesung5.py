@@ -11,6 +11,7 @@ Wie sieht es zum Beispiel mit einem "Functional"-Dictionary aus?
 
 paare = [("n", "never"), ("c", "code"), ("a", "alone")]
 
+
 class Testsuite(unittest.TestCase):
     ergebnis = dict(paare)
 
