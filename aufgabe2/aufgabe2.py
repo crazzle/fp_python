@@ -1,6 +1,5 @@
 import unittest
 
-
 """
 Aufgabe 2:
 Zahlen-Strings in Integer konvertieren
@@ -23,4 +22,13 @@ class Testsuite(unittest.TestCase):
 
 
 def konvertiere(zahlen):
-    return map(int, zahlen.split("+"))
+    pass
+
+
+
+
+
+
+
+
+

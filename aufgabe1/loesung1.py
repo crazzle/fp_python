@@ -23,11 +23,11 @@ class Aufgabe1(unittest.TestCase):
     ergebnis = "78+101+118+101+114+32+67+111+100+101+32+65+108+111+110+101"
 
     def test(self):
-        assert zahlenfolge_iterativ(self.zeichekette) == self.ergebnis
-        assert zahlenfolge_rekursiv(self.zeichekette) == self.ergebnis
-        assert zahlenfolge_comprehension(self.zeichekette) == self.ergebnis
-        assert zahlenfolge_map(self.zeichekette) == self.ergebnis
-        assert zahlenfolge_reduce(self.zeichekette) == self.ergebnis
+        self.assertEqual(self.ergebnis, zahlenfolge_iterativ(self.zeichekette))
+        self.assertEqual(self.ergebnis, zahlenfolge_rekursiv(self.zeichekette))
+        self.assertEqual(self.ergebnis, zahlenfolge_comprehension(self.zeichekette))
+        self.assertEqual(self.ergebnis, zahlenfolge_map(self.zeichekette))
+        self.assertEqual(self.ergebnis, zahlenfolge_reduce(self.zeichekette))
 
 
 def zahlenfolge_iterativ(zeile):

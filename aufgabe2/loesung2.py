@@ -1,5 +1,6 @@
 import unittest
 
+
 """
 Aufgabe 2:
 Zahlen-Strings in Integer konvertieren
@@ -18,16 +19,14 @@ class Testsuite(unittest.TestCase):
     ergebnis = [78, 101, 118, 101, 114, 32, 67, 111, 100, 101, 32, 65, 108, 111, 110, 101]
 
     def test(self):
-        assert konvertiere(self.zahlen) == self.ergebnis
+        self.assertListEqual(self.ergebnis, konvertiere(self.zahlen.split("+")))
 
 
 def konvertiere(zahlen):
-    pass
-
-
-
-
-
-
-
-
+    def custom_map(f, list):
+        if len(list) > 1:
+            c = [f(list[0])]
+            c.extend(custom_map(f, list[1:]))
+            return c
+        return [f(list[0])]
+    return custom_map(int, zahlen)
