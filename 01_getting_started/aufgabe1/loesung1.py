@@ -27,7 +27,6 @@ class Testsuite(unittest.TestCase):
         self.assertEqual(self.ergebnis, zahlenfolge_rekursiv(self.zeichenkette))
         self.assertEqual(self.ergebnis, zahlenfolge_comprehension(self.zeichenkette))
         self.assertEqual(self.ergebnis, zahlenfolge_map(self.zeichenkette))
-        self.assertEqual(self.ergebnis, zahlenfolge_reduce(self.zeichenkette))
 
 
 def zahlenfolge_iterativ(zeile):
