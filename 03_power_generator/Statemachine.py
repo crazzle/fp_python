@@ -1,6 +1,14 @@
 from collections import namedtuple
 from operator import add, sub
 
+"""
+Function Currying:
+Wir bauen einen kleinen Generator.
+Der Generator liefert per Default 0kw.
+Gibt man ihm ein Target nähert er sich diesem Target nach und nach an
+bis er es erreicht.
+"""
+
 '''
 Helper Funktionen
 '''
@@ -25,55 +33,3 @@ Definieren unserer States
 Generator = namedtuple("Generator", ["output", "state"])
 Running = namedtuple("Running", [])
 Dispatching = namedtuple("Dispatching", [])
-
-'''
-Definieren der State-Actions
-'''
-unit = lambda generator: ((generator.output, generator.state), generator)
-
-'''
-State Transition
-'''
-def action(target, generator):
-    output, state = generator
-    if target == output:
-        return (output, state), Generator(target, Running())
-    elif target < output:
-        return (output, state), Generator(sub(output, 1), Dispatching())
-    elif target > output:
-        return (output, state), Generator(add(output, 1), Dispatching())
-
-
-'''
-Testen
-'''
-powerunit = Generator(0, Running())
-print unit(powerunit)
-
-_, powerunit = action(5, powerunit)
-_, powerunit = action(5, powerunit)
-_, powerunit = action(5, powerunit)
-_, powerunit = action(5, powerunit)
-_, powerunit = action(5, powerunit)
-_, powerunit = action(5, powerunit)
-print powerunit
-
-_, powerunit = action(3, powerunit)
-_, powerunit = action(3, powerunit)
-_, powerunit = action(3, powerunit)
-print powerunit
-
-_, powerunit = action(0, powerunit)
-_, powerunit = action(0, powerunit)
-_, powerunit = action(0, powerunit)
-_, powerunit = action(1, powerunit)
-_, powerunit = action(1, powerunit)
-print powerunit
-
-'''
-Testen mit fold
-'''
-replay = "4+4+4+3+3+3+3+5+5+5+5+5+1+1+1+1+1+1+0+0"
-unit = Generator(0, Running())
-unit = foldLeft(lambda acc, el: action(acc, el)[1], unit, map(int, replay.split('+')))
-print unit

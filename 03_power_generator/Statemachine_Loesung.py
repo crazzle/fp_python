@@ -19,6 +19,7 @@ def foldLeft(f, acc, items):
         head, tail = items[0], items[1:]
         return foldLeft(f, f(head, acc), tail)
 
+
 '''
 Definieren unserer States
 '''
@@ -43,12 +44,11 @@ def action(target, generator):
     elif target > output:
         return (output, state), Generator(add(output, 1), Dispatching())
 
-
 '''
 Testen
 '''
 powerunit = Generator(0, Running())
-print unit(powerunit)[1]
+print "Unit: " + str(unit(powerunit)[1])
 
 _, powerunit = action(5, powerunit)
 _, powerunit = action(5, powerunit)
@@ -56,19 +56,19 @@ _, powerunit = action(5, powerunit)
 _, powerunit = action(5, powerunit)
 _, powerunit = action(5, powerunit)
 _, powerunit = action(5, powerunit)
-print powerunit
+print "Dispatch to 5: " + str(powerunit)
 
 _, powerunit = action(3, powerunit)
 _, powerunit = action(3, powerunit)
 _, powerunit = action(3, powerunit)
-print powerunit
+print "Dispatch to 3: " + str(powerunit)
 
 _, powerunit = action(0, powerunit)
 _, powerunit = action(0, powerunit)
 _, powerunit = action(0, powerunit)
 _, powerunit = action(1, powerunit)
 _, powerunit = action(1, powerunit)
-print powerunit
+print "Dispatch to 1: " + str(powerunit)
 
 '''
 Testen mit fold
@@ -76,4 +76,5 @@ Testen mit fold
 replay = "4+4+4+3+3+3+3+5+5+5+5+5+1+1+1+1+1+1+0+0"
 unit = Generator(0, Running())
 unit = foldLeft(lambda acc, el: action(acc, el)[1], unit, map(int, replay.split('+')))
-print unit
+print "Fold: " + str(unit)
+
