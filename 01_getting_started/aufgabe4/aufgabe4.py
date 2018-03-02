@@ -1,12 +1,11 @@
 import unittest
 
-
 """
 Aufgabe 4:
-End-2-End - String aufsummieren mit fold!
+Den Term parsen und aufsummieren
 
 Konkret:
-Wir haben nun Higher-Order-Functions kennengelernt und ein eigenes "reduce" (fold)
+Wir haben nun Higher-Order-Functions kennengelernt und ein eigenes "reduce" 
 geschrieben. "reduce" soll verwendet werden um den String aufzusummieren.
 
 Signatur von reduce:
@@ -14,7 +13,6 @@ def reduce(f, sequence, initial=None)
 
 Beispiel:
 "78+67+65" = 210
-
 """
 
 

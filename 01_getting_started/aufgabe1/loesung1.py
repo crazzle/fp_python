@@ -18,16 +18,16 @@ umwandeln.
 """
 
 
-class Aufgabe1(unittest.TestCase):
-    zeichekette = "Never Code Alone"
+class Testsuite(unittest.TestCase):
+    zeichenkette = "Never Code Alone"
     ergebnis = "78+101+118+101+114+32+67+111+100+101+32+65+108+111+110+101"
 
     def test(self):
-        self.assertEqual(self.ergebnis, zahlenfolge_iterativ(self.zeichekette))
-        self.assertEqual(self.ergebnis, zahlenfolge_rekursiv(self.zeichekette))
-        self.assertEqual(self.ergebnis, zahlenfolge_comprehension(self.zeichekette))
-        self.assertEqual(self.ergebnis, zahlenfolge_map(self.zeichekette))
-        self.assertEqual(self.ergebnis, zahlenfolge_reduce(self.zeichekette))
+        self.assertEqual(self.ergebnis, zahlenfolge_iterativ(self.zeichenkette))
+        self.assertEqual(self.ergebnis, zahlenfolge_rekursiv(self.zeichenkette))
+        self.assertEqual(self.ergebnis, zahlenfolge_comprehension(self.zeichenkette))
+        self.assertEqual(self.ergebnis, zahlenfolge_map(self.zeichenkette))
+        self.assertEqual(self.ergebnis, zahlenfolge_reduce(self.zeichenkette))
 
 
 def zahlenfolge_iterativ(zeile):

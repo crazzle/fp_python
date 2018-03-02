@@ -1,9 +1,8 @@
 import unittest
 
-
 """
 Aufgabe 3:
-Die Liste von Zahlen aufsummieren
+Eine Liste von Zahlen aufsummieren
 
 Beispiel:
 [78, 67, 65] = 210

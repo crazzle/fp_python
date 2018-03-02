@@ -1,6 +1,5 @@
 import unittest
 
-
 """
 Aufgabe 2:
 Zahlen-Strings in Integer konvertieren

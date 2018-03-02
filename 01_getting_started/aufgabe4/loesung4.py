@@ -1,7 +1,6 @@
 import unittest
 from operator import add
 
-
 """
 Aufgabe 4:
 Den Term parsen und aufsummieren
@@ -15,7 +14,6 @@ def reduce(f, sequence, initial=None)
 
 Beispiel:
 "78+67+65" = 210
-
 """
 
 
