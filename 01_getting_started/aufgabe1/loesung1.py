@@ -55,11 +55,6 @@ def zahlenfolge_map(zeile):
     return "+".join(map(lambda b: str(ord(b)), zeile))
 
 
-def zahlenfolge_reduce(zeile):
-    return reduce(lambda l, r: l + "+" + r, map(lambda s: "%s" % ord(s), zeile))
-
-
-
 
 
 
