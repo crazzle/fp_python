@@ -35,7 +35,7 @@ def foldRight(f, acc, items):
         return acc
     else:
         head, tail = items[0], items[1:]
-        return f(head, foldRight(f, acc, tail))
+        return f(foldRight(f, acc, tail), head)
 
 
 def foldLeft(f, acc, items):
