@@ -19,6 +19,7 @@ class Testsuite(unittest.TestCase):
 
     def test(self):
         self.assertListEqual(self.ergebnis, konvertiere(self.zahlen.split("+")))
+        self.assertListEqual(self.ergebnis, konvertiere2(self.zahlen.split("+")))
         self.assertListEqual(self.ergebnis, map(int, self.zahlen.split("+")))
 
 
@@ -30,3 +31,7 @@ def konvertiere(zahlen):
             return l
         return [f(list[0])]
     return custom_map(int, zahlen)
+
+
+def konvertiere2(zahlen):
+    return [int(l) for l in zahlen]

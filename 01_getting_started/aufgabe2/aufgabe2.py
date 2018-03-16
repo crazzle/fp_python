@@ -31,4 +31,3 @@ def konvertiere(zahlen):
 
 
 
-
