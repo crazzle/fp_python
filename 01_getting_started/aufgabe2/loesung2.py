@@ -26,7 +26,7 @@ def konvertiere(zahlen):
     def custom_map(f, list):
         if len(list) > 1:
             c = [f(list[0])]
-            c.extend(custom_map(f, list[1:]))
-            return c
+            l = c + custom_map(f, list[1:])
+            return l
         return [f(list[0])]
     return custom_map(int, zahlen)
