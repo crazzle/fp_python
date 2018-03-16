@@ -2,10 +2,10 @@ import unittest
 from operator import add
 
 """
-Aufgabe 3:
-Eine Liste von Zahlen aufsummieren
+Task 3:
+Sum up a list of numbers
 
-Beispiel:
+Example:
 [78, 67, 65] = 210
 
 """
@@ -13,17 +13,17 @@ Beispiel:
 
 class Testsuite(unittest.TestCase):
 
-    zahlen = [78, 101, 118, 101, 114, 32, 67, 111, 100, 101, 32, 65, 108, 111, 110, 101]
-    ergebnis = 1450
+    numbers = [78, 101, 118, 101, 114, 32, 67, 111, 100, 101, 32, 65, 108, 111, 110, 101]
+    result = 1450
 
     def test(self):
-        self.assertEqual(self.ergebnis, summiere_iterativ(self.zahlen))
-        self.assertEqual(self.ergebnis, foldRight(add, 0, self.zahlen))
-        self.assertEqual(self.ergebnis, foldLeft(add, 0, self.zahlen))
-        self.assertEqual(self.ergebnis, sum(self.zahlen))
+        self.assertEqual(self.result, sum_up(self.numbers))
+        self.assertEqual(self.result, foldRight(add, 0, self.numbers))
+        self.assertEqual(self.result, foldLeft(add, 0, self.numbers))
+        self.assertEqual(self.result, sum(self.numbers))
 
 
-def summiere_iterativ(zahlen):
+def sum_up(zahlen):
     summe = 0
     for zahl in zahlen:
         summe+=zahl

@@ -2,35 +2,30 @@ import unittest
 
 
 """
-Aufgabe 1:
-Einen String in eine Zeichenkette von Zahlen konvertieren
+Task 1:
+Convert the string into a string of ASCII codes 
 
-Konkret:
-Konvertiere eine Zeichenfolge in ihren ASCII-Code.
-Die einzelnen Zahlenwerte werden durch ein '+'
-aneinandergereiht.
+Detail:
+Convert the string into a string of ASCII codes concatenated
+by '+'
 
-Beispiel:
-NCA = 78+67+65
+Example:
+NCA = "78+67+65"
 
-Character lassen sich mit ord() in ihren ASCII-Code 
-umwandeln.
+Characters can be converted to ASCII by ord()
 """
 
 
 class Testsuite(unittest.TestCase):
-    zeichenkette = "Never Code Alone"
-    ergebnis = "78+101+118+101+114+32+67+111+100+101+32+65+108+111+110+101"
+    the_string = "Never Code Alone"
+    result = "78+101+118+101+114+32+67+111+100+101+32+65+108+111+110+101"
 
     def test(self):
-        self.assertEqual(self.ergebnis, zahlenfolge_funktional(self.zeichenkette))
+        self.assertEqual(self.result, convert(self.the_string))
 
 
-def zahlenfolge_funktional(zeile):
+def convert(row):
     pass
-
-
-
 
 
 

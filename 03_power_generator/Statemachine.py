@@ -2,16 +2,14 @@ from collections import namedtuple
 import unittest
 
 """
-Function Currying:
-Wir bauen einen kleinen Generator.
-Der Generator liefert per Default 0kw.
-Gibt man ihm ein Target naehert er sich diesem Target nach und nach an
-bis er es erreicht.
+Functional Statemachine:
+Build a small power generator.
+The generator generates per Default 0kw.
+You can give it a target that it approaches over time.
 """
 
-
 '''
-Helper Funktionen
+Helper function
 '''
 def foldLeft(f, acc, items):
     if not items:
@@ -21,20 +19,28 @@ def foldLeft(f, acc, items):
         return foldLeft(f, f(head, acc), tail)
 
 '''
-Definieren unserer States
+States
 '''
 Generator = namedtuple("Generator", ["output", "state"])
 Running = namedtuple("Running", [])
 Dispatching = namedtuple("Dispatching", [])
 
 '''
-Definieren der State-Transition
+State-Transition
 
-Signatur:
+Signature:
 target, generator -> (Int, State), Generator
 '''
 def action(target, generator):
-    pass
+    from operator import add, sub
+    output, state = generator
+    if target == output:
+        return (output, state), Generator(target, Running())
+    if target < output:
+        return (output, state), Generator(sub(output, 1), Dispatching())
+    if target > output:
+        return (output, state), Generator(add(output, 1), Dispatching())
+
 
 class Testsuite(unittest.TestCase):
     replay = "4+4+4+3+3+3+3+5+5+5+5+5+1+1+1+1+1+1"
@@ -42,9 +48,3 @@ class Testsuite(unittest.TestCase):
 
     def test_statemachine(self):
         self.fail("Not implemented yet")
-
-    def test_fold(self):
-        self.assertEqual(self.ergebnis, None)
-
-
-

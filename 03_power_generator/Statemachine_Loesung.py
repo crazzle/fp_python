@@ -2,8 +2,15 @@ import unittest
 from collections import namedtuple
 from operator import add, sub
 
+"""
+Functional Statemachine:
+Build a small power generator.
+The generator generates per Default 0kw.
+You can give it a target that it approaches over time.
+"""
+
 '''
-Helper Funktionen
+Helper function
 '''
 def foldLeft(f, acc, items):
     if not items:
@@ -12,18 +19,17 @@ def foldLeft(f, acc, items):
         head, tail = items[0], items[1:]
         return foldLeft(f, f(head, acc), tail)
 
-
 '''
-Definieren unserer States
+States
 '''
 Generator = namedtuple("Generator", ["output", "state"])
 Running = namedtuple("Running", [])
 Dispatching = namedtuple("Dispatching", [])
 
 '''
-Definieren der State-Transition
+State-Transition
 
-Signatur:
+Signature:
 target, generator -> (Int, State), Generator
 '''
 def action(target, generator):

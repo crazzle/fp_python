@@ -2,15 +2,11 @@ import unittest
 
 """
 Function Currying:
-Wir bauen einen Decorator "Curry" der Funktionen
-partiell anwendet und uns eine neue Funktion wiedergibt.
+Build a decorator named 'curried' that partially applies
+a decorated function and therefore returns a new function.
 
-Hilfe:
-Ein Dekorator ist eine Funktion, die eine Funktion uebergeben
-bekommt. Die uebergebene Funktion wird gewrapped.
-
-<Function>.__code__.co_argcount gibt die Anzahl der Parameter
-eines Funktionsobjekts zurueck
+<Function>.__code__.co_argcount returns the count of parameters
+of a function
 """
 
 
@@ -29,9 +25,9 @@ def test(a, b, c):
     return a+b+c
 
 class Testsuite(unittest.TestCase):
-    ergebnis = 6
+    result = 6
 
     def test(self):
         test1 = test(1)
         test2 = test1(2)
-        self.assertEqual(self.ergebnis, test2(3))
+        self.assertEqual(self.result, test2(3))

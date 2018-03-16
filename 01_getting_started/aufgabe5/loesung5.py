@@ -1,28 +1,25 @@
 import unittest
 
 """
-Aufgabe 5:
-Funktionen koennen auch Funktionen zurueckgeben.
-Mit "reduce" kann man noch viel mehr machen wenn das Ergebnis 
-eine Funktion ist.
-Wie sieht es zum Beispiel mit einem "Functional"-Dictionary aus? 
+Task 5:
+Create a fully functional dictionary just out of functions
 """
 
 
-paare = [("n", "never"), ("c", "code"), ("a", "alone")]
+pairs = [("n", "never"), ("c", "code"), ("a", "alone")]
 
 
 class Testsuite(unittest.TestCase):
-    ergebnis = dict(paare)
+    result = dict(pairs)
 
     def test(self):
-        self.assertEqual(self.ergebnis["n"], get("n"))
-        self.assertEqual(self.ergebnis["c"], get("c"))
-        self.assertEqual(self.ergebnis["a"], get("a"))
+        self.assertEqual(self.result["n"], get("n"))
+        self.assertEqual(self.result["c"], get("c"))
+        self.assertEqual(self.result["a"], get("a"))
 
 
 def get(key):
-    return store(paare)(key)
+    return store(pairs)(key)
 
 
 def store(items):

@@ -1,29 +1,25 @@
 import unittest
 
 """
-Aufgabe 2:
-Zahlen-Strings in Integer konvertieren
+Task 2:
+Convert the string of numbers to a list of integers
 
-Konkret:
-Die Zahlen im String sollen in Integer konvertiert werden
-
-Beispiel:
+Example:
 "78+67+65" = [78, 67, 65]
-
 """
 
 
 class Testsuite(unittest.TestCase):
-    zahlen = "78+101+118+101+114+32+67+111+100+101+32+65+108+111+110+101"
-    ergebnis = [78, 101, 118, 101, 114, 32, 67, 111, 100, 101, 32, 65, 108, 111, 110, 101]
+    numbers = "78+101+118+101+114+32+67+111+100+101+32+65+108+111+110+101"
+    result = [78, 101, 118, 101, 114, 32, 67, 111, 100, 101, 32, 65, 108, 111, 110, 101]
 
     def test(self):
-        self.assertListEqual(self.ergebnis, konvertiere(self.zahlen.split("+")))
-        self.assertListEqual(self.ergebnis, konvertiere2(self.zahlen.split("+")))
-        self.assertListEqual(self.ergebnis, map(int, self.zahlen.split("+")))
+        self.assertListEqual(self.result, convert(self.numbers.split("+")))
+        self.assertListEqual(self.result, convert2(self.numbers.split("+")))
+        self.assertListEqual(self.result, map(int, self.numbers.split("+")))
 
 
-def konvertiere(zahlen):
+def convert(zahlen):
     def custom_map(f, list):
         if len(list) > 1:
             c = [f(list[0])]
@@ -33,5 +29,5 @@ def konvertiere(zahlen):
     return custom_map(int, zahlen)
 
 
-def konvertiere2(zahlen):
+def convert2(zahlen):
     return [int(l) for l in zahlen]

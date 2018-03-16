@@ -2,27 +2,27 @@ import unittest
 from operator import add
 
 """
-Aufgabe 4:
-Den Term parsen und aufsummieren
+Task 4:
+Parse the term and sum up the numbers
 
-Konkret:
-Wir haben nun Higher-Order-Functions kennengelernt und ein eigenes "reduce" 
-geschrieben. "reduce" soll verwendet werden um den String aufzusummieren.
+Detail:
+We now know Higher-Order-Functions and implemented our own reduce.
+Use "reduce" now to sum up the numbers in the string.
 
-Signatur von reduce:
+Signature of reduce:
 def reduce(f, sequence, initial=None)
 
-Beispiel:
+Example:
 "78+67+65" = 210
 """
 
 
 class Testsuite(unittest.TestCase):
 
-    zahlen = "78+101+118+101+114+32+67+111+100+101+32+65+108+111+110+101"
-    problematisch = "++78+101+118+101+114+32+67++111+100+101+32+65+108+111++++110+101"
-    ergebnis = 1450
+    numbers = "78+101+118+101+114+32+67+111+100+101+32+65+108+111+110+101"
+    problem = "++78+101+118+101+114+32+67++111+100+101+32+65+108+111++++110+101"
+    result = 1450
 
     def test(self):
-        self.assertEqual(self.ergebnis, reduce(add, map(int, self.zahlen.split("+"))))
-        self.assertEqual(self.ergebnis, reduce(add, map(int, filter(bool, self.problematisch.split("+")))))
+        self.assertEqual(self.result, reduce(add, map(int, self.numbers.split("+"))))
+        self.assertEqual(self.result, reduce(add, map(int, filter(bool, self.problem.split("+")))))
