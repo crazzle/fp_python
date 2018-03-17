@@ -12,12 +12,25 @@ You can give it a target that it approaches over time.
 '''
 Helper function
 '''
+def curried(func):
+    def curry(*args):
+        if len(args) == func.__code__.co_argcount:
+            ans = func(*args)
+            return ans
+        else:
+            return lambda *x: curry(*(args+x))
+
+    return curry
+
+
+@curried
 def foldLeft(f, acc, items):
     if not items:
         return acc
     else:
         head, tail = items[0], items[1:]
         return foldLeft(f, f(head, acc), tail)
+
 
 '''
 States
@@ -47,9 +60,9 @@ class Testsuite(unittest.TestCase):
     ergebnis = Generator(output=1, state=Running())
 
     def test_fold(self):
-        unit = Generator(0, Running())
-        unit = foldLeft(lambda acc, el: action(acc, el)[1], unit, map(int, self.replay.split('+')))
-        self.assertEqual(self.ergebnis, unit)
+        generator_folding = foldLeft(lambda acc, el: action(acc, el)[1], Generator(0, Running()))
+        result = generator_folding(map(int, self.replay.split('+')))
+        self.assertEqual(self.ergebnis, result)
 
     def test_state_machine(self):
         powerunit = Generator(0, Running())

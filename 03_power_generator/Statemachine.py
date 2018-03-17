@@ -11,12 +11,24 @@ You can give it a target that it approaches over time.
 '''
 Helper function
 '''
+def curried(func):
+    def curry(*args):
+        if len(args) == func.__code__.co_argcount:
+            ans = func(*args)
+            return ans
+        else:
+            return lambda *x: curry(*(args+x))
+
+    return curry
+
+
 def foldLeft(f, acc, items):
     if not items:
         return acc
     else:
         head, tail = items[0], items[1:]
         return foldLeft(f, f(head, acc), tail)
+
 
 '''
 States
@@ -32,14 +44,7 @@ Signature:
 target, generator -> (Int, State), Generator
 '''
 def action(target, generator):
-    from operator import add, sub
-    output, state = generator
-    if target == output:
-        return (output, state), Generator(target, Running())
-    if target < output:
-        return (output, state), Generator(sub(output, 1), Dispatching())
-    if target > output:
-        return (output, state), Generator(add(output, 1), Dispatching())
+    pass
 
 
 class Testsuite(unittest.TestCase):

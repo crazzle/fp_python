@@ -16,7 +16,7 @@ def curried(func):
             ans = func(*args)
             return ans
         else:
-            return lambda x: curry(*(args+(x,)))
+            return lambda *x: curry(*(args+x))
 
     return curry
 
@@ -31,3 +31,5 @@ class Testsuite(unittest.TestCase):
         test1 = test(1)
         test2 = test1(2)
         self.assertEqual(self.result, test2(3))
+        self.assertEqual(self.result, test(1)(2,3))
+        self.assertEqual(self.result, test(1,2)(3))
