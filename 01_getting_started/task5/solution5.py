@@ -27,6 +27,6 @@ def store(items):
         return lambda k: value if k == key else None
 
     def merge(acc, el):
-        return lambda k: acc(k) or el(k)
+        return lambda k: el(k) or acc(k)
 
     return reduce(merge, map(pair, items))
